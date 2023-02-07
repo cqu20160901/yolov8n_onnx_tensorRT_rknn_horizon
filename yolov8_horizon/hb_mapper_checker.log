@@ -1,0 +1,170 @@
+2023-02-07 13:44:38,699 file: hb_mapper.py func: hb_mapper line No: 70 Start hb_mapper....
+2023-02-07 13:44:38,699 file: hb_mapper.py func: hb_mapper line No: 71 log will be stored in /convert_model/horizon_model_convert_sample/04_detection/03_yolov8_zq/mapper/hb_mapper_checker.log
+2023-02-07 13:44:38,700 file: hb_mapper.py func: hb_mapper line No: 72 hbdk version 3.27.4
+2023-02-07 13:44:38,700 file: hb_mapper.py func: hb_mapper line No: 73 horizon_nn version 0.13.3
+2023-02-07 13:44:38,700 file: hb_mapper.py func: hb_mapper line No: 74 hb_mapper version 1.6.8a
+2023-02-07 13:44:38,700 file: hb_mapper.py func: hb_mapper line No: 76 parameter [output] is deprecated
+2023-02-07 13:44:38,797 file: helper.py func: helper line No: 124 Model input names: ['data']
+2023-02-07 13:44:38,797 file: hb_mapper_checker.py func: hb_mapper_checker line No: 104 Model type: onnx
+2023-02-07 13:44:38,798 file: hb_mapper_checker.py func: hb_mapper_checker line No: 105 march: bernoulli2
+2023-02-07 13:44:38,798 file: hb_mapper_checker.py func: hb_mapper_checker line No: 110 input names []
+2023-02-07 13:44:38,798 file: hb_mapper_checker.py func: hb_mapper_checker line No: 111 input shapes {}
+2023-02-07 13:44:38,798 file: hb_mapper_checker.py func: hb_mapper_checker line No: 117 Begin model checking....
+2023-02-07 13:44:38,798 file: build.py func: build line No: 36 [Tue Feb  7 13:44:38 2023] Start to Horizon NN Model Convert.
+2023-02-07 13:44:38,798 file: dict_parser.py func: dict_parser line No: 28 The input parameter is not specified, convert with default parameters.
+2023-02-07 13:44:38,798 file: dict_parser.py func: dict_parser line No: 513 The hbdk parameter is not specified, and the submodel will be compiled with the default parameter.
+2023-02-07 13:44:38,798 file: build.py func: build line No: 143 HorizonNN version: 0.13.3
+2023-02-07 13:44:38,798 file: build.py func: build line No: 147 HBDK version: 3.27.4
+2023-02-07 13:44:38,798 file: build.py func: build line No: 36 [Tue Feb  7 13:44:38 2023] Start to parse the onnx model.
+2023-02-07 13:44:39,025 file: onnx_parser.py func: onnx_parser line No: 146 ONNX model info:
+ONNX IR version:  6
+Opset version:    11
+Input name:       data, [1, 3, 640, 640]
+2023-02-07 13:44:39,181 file: build.py func: build line No: 39 [Tue Feb  7 13:44:39 2023] End to parse the onnx model.
+2023-02-07 13:44:39,182 file: build.py func: build line No: 266 Model input names: ['data']
+2023-02-07 13:44:39,213 file: build.py func: build line No: 537 Saving the original float model: ./.hb_check/original_float_model.onnx.
+2023-02-07 13:44:39,214 file: build.py func: build line No: 36 [Tue Feb  7 13:44:39 2023] Start to optimize the model.
+2023-02-07 13:44:40,438 file: build.py func: build line No: 39 [Tue Feb  7 13:44:40 2023] End to optimize the model.
+2023-02-07 13:44:40,452 file: build.py func: build line No: 548 Saving the optimized model: ./.hb_check/optimized_float_model.onnx.
+2023-02-07 13:44:40,453 file: build.py func: build line No: 36 [Tue Feb  7 13:44:40 2023] Start to calibrate the model.
+2023-02-07 13:44:40,658 file: calibration_data_set.py func: calibration_data_set line No: 67 There are 1 samples in the calibration data set.
+2023-02-07 13:44:40,660 file: max_calibrater.py func: max_calibrater line No: 68 Run calibration model with max method.
+2023-02-07 13:44:40,982 file: build.py func: build line No: 39 [Tue Feb  7 13:44:40 2023] End to calibrate the model.
+2023-02-07 13:44:40,982 file: build.py func: build line No: 36 [Tue Feb  7 13:44:40 2023] Start to quantize the model.
+2023-02-07 13:44:41,591 file: build.py func: build line No: 39 [Tue Feb  7 13:44:41 2023] End to quantize the model.
+2023-02-07 13:44:41,686 file: build.py func: build line No: 562 Saving the quantized model: ./.hb_check/quantized_model.onnx.
+2023-02-07 13:44:41,687 file: build.py func: build line No: 36 [Tue Feb  7 13:44:41 2023] Start to compile the model with march bernoulli2.
+2023-02-07 13:44:41,687 file: dict_parser.py func: dict_parser line No: 518 Parsing the hbdk parameter:{'hbdk_pass_through_params': '--O0'}
+2023-02-07 13:44:41,892 file: hybrid_build.py func: hybrid_build line No: 123 Compile submodel: torch-jit-export_subgraph_0
+2023-02-07 13:44:42,243 file: hbdk_cc.py func: hbdk_cc line No: 119 hbdk-cc parameters:['--O0', '--input-layout', 'NHWC', '--output-layout', 'NCHW']
+2023-02-07 13:44:43,247 file: hybrid_build.py func: hybrid_build line No: 123 Compile submodel: torch-jit-export_subgraph_1
+2023-02-07 13:44:43,259 file: hbdk_cc.py func: hbdk_cc line No: 119 hbdk-cc parameters:['--O0', '--input-layout', 'NHWC', '--output-layout', 'NCHW']
+2023-02-07 13:44:43,316 file: hybrid_build.py func: hybrid_build line No: 123 Compile submodel: torch-jit-export_subgraph_2
+2023-02-07 13:44:43,328 file: hbdk_cc.py func: hbdk_cc line No: 119 hbdk-cc parameters:['--O0', '--input-layout', 'NHWC', '--output-layout', 'NCHW']
+2023-02-07 13:44:43,364 file: hybrid_build.py func: hybrid_build line No: 123 Compile submodel: torch-jit-export_subgraph_3
+2023-02-07 13:44:43,376 file: hbdk_cc.py func: hbdk_cc line No: 119 hbdk-cc parameters:['--O0', '--input-layout', 'NHWC', '--output-layout', 'NCHW']
+2023-02-07 13:44:43,571 file: build.py func: build line No: 39 [Tue Feb  7 13:44:43 2023] End to compile the model with march bernoulli2.
+2023-02-07 13:44:43,572 file: node_info.py func: node_info line No: 54 The converted model node information:
+============================================================================================
+Node                                               ON   Subgraph  Type                       
+---------------------------------------------------------------------------------------------
+Conv_0                                             BPU  id(0)     HzSQuantizedConv           
+Conv_2                                             BPU  id(0)     HzSQuantizedConv           
+Conv_4                                             BPU  id(0)     HzSQuantizedConv           
+Split_6                                            BPU  id(0)     Split                      
+Conv_7                                             BPU  id(0)     HzSQuantizedConv           
+Conv_9                                             BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_11                               BPU  id(0)     HzSQuantizedConv           
+Concat_12                                          BPU  id(0)     Concat                     
+Conv_13                                            BPU  id(0)     HzSQuantizedConv           
+Conv_15                                            BPU  id(0)     HzSQuantizedConv           
+Conv_17                                            BPU  id(0)     HzSQuantizedConv           
+Split_19                                           BPU  id(0)     Split                      
+Conv_20                                            BPU  id(0)     HzSQuantizedConv           
+Conv_22                                            BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_24                               BPU  id(0)     HzSQuantizedConv           
+Conv_25                                            BPU  id(0)     HzSQuantizedConv           
+Conv_27                                            BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_29                               BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_149_0.038379576057196_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_150_0.038379576057196_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_155_0.038379576057196_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+Concat_30                                          BPU  id(0)     Concat                     
+Conv_31                                            BPU  id(0)     HzSQuantizedConv           
+Conv_33                                            BPU  id(0)     HzSQuantizedConv           
+Conv_35                                            BPU  id(0)     HzSQuantizedConv           
+Split_37                                           BPU  id(0)     Split                      
+Conv_38                                            BPU  id(0)     HzSQuantizedConv           
+Conv_40                                            BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_42                               BPU  id(0)     HzSQuantizedConv           
+Conv_43                                            BPU  id(0)     HzSQuantizedConv           
+Conv_45                                            BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_47                               BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_168_0.051352944225073_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_169_0.051352944225073_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_174_0.051352944225073_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+Concat_48                                          BPU  id(0)     Concat                     
+Conv_49                                            BPU  id(0)     HzSQuantizedConv           
+Conv_51                                            BPU  id(0)     HzSQuantizedConv           
+Conv_53                                            BPU  id(0)     HzSQuantizedConv           
+Split_55                                           BPU  id(0)     Split                      
+Conv_56                                            BPU  id(0)     HzSQuantizedConv           
+Conv_58                                            BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_Add_60                               BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_187_0.051846016198397_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_188_0.051846016198397_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+Concat_61                                          BPU  id(0)     Concat                     
+Conv_62                                            BPU  id(0)     HzSQuantizedConv           
+Conv_64                                            BPU  id(0)     HzSQuantizedConv           
+MaxPool_66                                         BPU  id(0)     HzQuantizedMaxPool         
+MaxPool_67                                         BPU  id(0)     HzQuantizedMaxPool         
+MaxPool_68                                         BPU  id(0)     HzQuantizedMaxPool         
+Concat_69                                          BPU  id(0)     Concat                     
+Conv_70                                            BPU  id(0)     HzSQuantizedConv           
+Resize_73                                          BPU  id(0)     HzQuantizedResizeUpsample  
+Concat_74                                          BPU  id(0)     Concat                     
+Conv_75                                            BPU  id(0)     HzSQuantizedConv           
+Split_77                                           BPU  id(0)     Split                      
+Conv_78                                            BPU  id(0)     HzSQuantizedConv           
+Conv_80                                            BPU  id(0)     HzSQuantizedConv           
+Concat_82                                          BPU  id(0)     Concat                     
+Conv_83                                            BPU  id(0)     HzSQuantizedConv           
+Resize_86                                          BPU  id(0)     HzQuantizedResizeUpsample  
+UNIT_CONV_FOR_163_0.031809180974960_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+Concat_87                                          BPU  id(0)     Concat                     
+Conv_88                                            BPU  id(0)     HzSQuantizedConv           
+Split_90                                           BPU  id(0)     Split                      
+Conv_91                                            BPU  id(0)     HzSQuantizedConv           
+Conv_93                                            BPU  id(0)     HzSQuantizedConv           
+Concat_95                                          BPU  id(0)     Concat                     
+Conv_96                                            BPU  id(0)     HzSQuantizedConv           
+Conv_98                                            BPU  id(0)     HzSQuantizedConv           
+Concat_100                                         BPU  id(0)     Concat                     
+Conv_101                                           BPU  id(0)     HzSQuantizedConv           
+Split_103                                          BPU  id(0)     Split                      
+Conv_104                                           BPU  id(0)     HzSQuantizedConv           
+Conv_106                                           BPU  id(0)     HzSQuantizedConv           
+Concat_108                                         BPU  id(0)     Concat                     
+Conv_109                                           BPU  id(0)     HzSQuantizedConv           
+Conv_111                                           BPU  id(0)     HzSQuantizedConv           
+UNIT_CONV_FOR_204_0.032518733292818_TO_FUSE_SCALE  BPU  id(0)     HzSQuantizedConv           
+Concat_113                                         BPU  id(0)     Concat                     
+Conv_114                                           BPU  id(0)     HzSQuantizedConv           
+Split_116                                          BPU  id(0)     Split                      
+Conv_117                                           BPU  id(0)     HzSQuantizedConv           
+Conv_119                                           BPU  id(0)     HzSQuantizedConv           
+Concat_121                                         BPU  id(0)     Concat                     
+Conv_122                                           BPU  id(0)     HzSQuantizedConv           
+Conv_124                                           BPU  id(0)     HzSQuantizedConv           
+Conv_126                                           BPU  id(0)     HzSQuantizedConv           
+Conv_128                                           BPU  id(0)     HzSQuantizedConv           
+Conv_129                                           BPU  id(0)     HzSQuantizedConv           
+Conv_131                                           BPU  id(0)     HzSQuantizedConv           
+Conv_133                                           BPU  id(0)     HzSQuantizedConv           
+Reshape_139                                        CPU  --        Reshape                    
+Transpose_140                                      CPU  --        Transpose                  
+Softmax_141                                        CPU  --        Softmax                    
+Conv_143                                           BPU  id(1)     HzSQuantizedConv           
+Conv_144                                           BPU  id(0)     HzSQuantizedConv           
+Conv_146                                           BPU  id(0)     HzSQuantizedConv           
+Conv_148                                           BPU  id(0)     HzSQuantizedConv           
+Conv_149                                           BPU  id(0)     HzSQuantizedConv           
+Conv_151                                           BPU  id(0)     HzSQuantizedConv           
+Conv_153                                           BPU  id(0)     HzSQuantizedConv           
+Reshape_159                                        CPU  --        Reshape                    
+Transpose_160                                      CPU  --        Transpose                  
+Softmax_161                                        CPU  --        Softmax                    
+Conv_163                                           BPU  id(2)     HzSQuantizedConv           
+Conv_164                                           BPU  id(0)     HzSQuantizedConv           
+Conv_166                                           BPU  id(0)     HzSQuantizedConv           
+Conv_168                                           BPU  id(0)     HzSQuantizedConv           
+Conv_169                                           BPU  id(0)     HzSQuantizedConv           
+Conv_171                                           BPU  id(0)     HzSQuantizedConv           
+Conv_173                                           BPU  id(0)     HzSQuantizedConv           
+Reshape_179                                        CPU  --        Reshape                    
+Transpose_180                                      CPU  --        Transpose                  
+Softmax_181                                        CPU  --        Softmax                    
+Conv_183                                           BPU  id(3)     HzSQuantizedConv
+2023-02-07 13:44:43,572 file: build.py func: build line No: 39 [Tue Feb  7 13:44:43 2023] End to Horizon NN Model Convert.
+2023-02-07 13:44:43,577 file: onnx2horizonrt.py func: onnx2horizonrt line No: 2841 ONNX model output num : 6
+2023-02-07 13:44:43,583 file: hb_mapper_checker.py func: hb_mapper_checker line No: 141 End model checking....

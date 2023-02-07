@@ -1,0 +1,201 @@
+# Copyright (c) 2020 Horizon Robotics.All Rights Reserved.
+#
+# The material in this file is confidential and contains trade secrets
+# of Horizon Robotics Inc. This is proprietary information owned by
+# Horizon Robotics Inc. No part of this work may be disclosed,
+# reproduced, copied, transmitted, or used in any way for any purpose,
+# without the express written permission of Horizon Robotics Inc.
+
+# 模型转化相关的参数
+# ------------------------------------
+# model conversion related parameters
+model_parameters:
+  # Onnx浮点网络数据模型文件
+  # -----------------------------------------------------------
+  # the model file of floating-point ONNX neural network data
+  onnx_model: './model/yolov8n_ZQ.onnx'
+
+  # 适用BPU架构
+  # --------------------------------
+  # the applicable BPU architecture
+  march: "bernoulli2"
+
+  # 指定模型转换过程中是否输出各层的中间结果，如果为True，则输出所有层的中间输出结果，
+  # --------------------------------------------------------------------------------------
+  # specifies whether or not to dump the intermediate results of all layers in conversion
+  # if set to True, then the intermediate results of all layers shall be dumped
+  layer_out_dump: False
+
+  # 日志文件的输出控制参数，
+  # debug输出模型转换的详细信息
+  # info只输出关键信息
+  # warn输出警告和错误级别以上的信息
+  # ----------------------------------------------------------------------------------------
+  # output control parameter of log file(s),
+  # if set to 'debug', then details of model conversion will be dumped
+  # if set to 'info', then only important imformation will be dumped
+  # if set to 'warn', then information ranked higher than 'warn' and 'error' will be dumped
+  log_level: 'debug'
+
+  # 模型转换输出的结果的存放目录
+  # -----------------------------------------------------------
+  # the directory in which model conversion results are stored
+  working_dir: 'model_output'
+
+  # 模型转换输出的用于上板执行的模型文件的名称前缀
+  # -----------------------------------------------------------------------------------------
+  # model conversion generated name prefix of those model files used for dev board execution
+  output_model_file_prefix: 'yolov8'
+
+# 模型输入相关参数, 若输入多个节点, 则应使用';'进行分隔, 使用默认缺省设置则写None
+# --------------------------------------------------------------------------
+# model input related parameters,
+# please use ";" to seperate when inputting multiple nodes,
+# please use None for default setting
+input_parameters:
+
+  # (选填) 模型输入的节点名称, 此名称应与模型文件中的名称一致, 否则会报错, 不填则会使用模型文件中的节点名称
+  # --------------------------------------------------------------------------------------------------------
+  # (Optional) node name of model input,
+  # it shall be the same as the name of model file, otherwise an error will be reported,
+  # the node name of model file will be used when left blank
+  input_name: ""
+
+  # 网络实际执行时，输入给网络的数据格式，包括 nv12/rgb/bgr/yuv444/gray/featuremap,
+  # ------------------------------------------------------------------------------------------
+  # the data formats to be passed into neural network when actually performing neural network
+  # available options: nv12/rgb/bgr/yuv444/gray/featuremap,
+  input_type_rt: 'rgb'
+
+  # 网络实际执行时输入的数据排布, 可选值为 NHWC/NCHW
+  # 若input_type_rt配置为nv12，则此处参数不需要配置
+  # ------------------------------------------------------------------
+  # the data layout formats to be passed into neural network when actually performing neural network, available options: NHWC/NCHW
+  # If input_type_rt is configured as nv12, then this parameter does not need to be configured
+  input_layout_rt: 'NCHW'
+
+  # 网络训练时输入的数据格式，可选的值为rgb/bgr/gray/featuremap/yuv444
+  # --------------------------------------------------------------------
+  # the data formats in network training
+  # available options: rgb/bgr/gray/featuremap/yuv444
+  input_type_train: 'rgb'
+
+  # 网络训练时输入的数据排布, 可选值为 NHWC/NCHW
+  # ------------------------------------------------------------------
+  # the data layout in network training, available options: NHWC/NCHW
+  input_layout_train: 'NCHW'
+
+  # (选填) 模型网络的输入大小, 以'x'分隔, 不填则会使用模型文件中的网络输入大小，否则会覆盖模型文件中输入大小
+  # -------------------------------------------------------------------------------------------
+  # (Optional)the input size of model network, seperated by 'x'
+  # note that the network input size of model file will be used if left blank
+  # otherwise it will overwrite the input size of model file
+  input_shape: ''
+
+  # 网络实际执行时，输入给网络的batch_size, 默认值为1
+  # ---------------------------------------------------------------------
+  # the data batch_size to be passed into neural network when actually performing neural network, default value: 1
+  #input_batch: 1
+  
+  # 网络输入的预处理方法，主要有以下几种：
+  # no_preprocess 不做任何操作
+  # data_mean 减去通道均值mean_value
+  # data_scale 对图像像素乘以data_scale系数
+  # data_mean_and_scale 减去通道均值后再乘以scale系数
+  # -------------------------------------------------------------------------------------------
+  # preprocessing methods of network input, available options:
+  # 'no_preprocess' indicates that no preprocess will be made 
+  # 'data_mean' indicates that to minus the channel mean, i.e. mean_value
+  # 'data_scale' indicates that image pixels to multiply data_scale ratio
+  # 'data_mean_and_scale' indicates that to multiply scale ratio after channel mean is minused
+  norm_type: 'data_scale'
+
+  # 图像减去的均值, 如果是通道均值，value之间必须用空格分隔
+  # --------------------------------------------------------------------------
+  # the mean value minused by image
+  # note that values must be seperated by space if channel mean value is used
+  mean_value: ''
+
+  # 图像预处理缩放比例，如果是通道缩放比例，value之间必须用空格分隔
+  # ---------------------------------------------------------------------------
+  # scale value of image preprocess
+  # note that values must be seperated by space if channel scale value is used
+  scale_value: 0.003921568627451
+
+# 模型量化相关参数
+# -----------------------------
+# model calibration parameters
+calibration_parameters:
+
+  # 模型量化的参考图像的存放目录，图片格式支持Jpeg、Bmp等格式，输入的图片
+  # 应该是使用的典型场景，一般是从测试集中选择20~100张图片，另外输入
+  # 的图片要覆盖典型场景，不要是偏僻场景，如过曝光、饱和、模糊、纯黑、纯白等图片
+  # 若有多个输入节点, 则应使用';'进行分隔
+  # -------------------------------------------------------------------------------------------------
+  # the directory where reference images of model quantization are stored
+  # image formats include JPEG, BMP etc.
+  # should be classic application scenarios, usually 20~100 images are picked out from test datasets
+  # in addition, note that input images should cover typical scenarios
+  # and try to avoid those overexposed, oversaturated, vague, 
+  # pure blank or pure white images
+  # use ';' to seperate when there are multiple input nodes
+  cal_data_dir: './cal_data'
+
+  # 如果输入的图片文件尺寸和模型训练的尺寸不一致时，并且preprocess_on为true，
+  # 则将采用默认预处理方法(skimage resize)，
+  # 将输入图片缩放或者裁减到指定尺寸，否则，需要用户提前把图片处理为训练时的尺寸
+  # ---------------------------------------------------------------------------------
+  # In case the size of input image file is different from that of in model training
+  # and that preprocess_on is set to True,
+  # shall the default preprocess method(skimage resize) be used
+  # i.e., to resize or crop input image into specified size
+  # otherwise user must keep image size as that of in training in advance
+  preprocess_on: True
+
+  # 模型量化的算法类型，支持kl、max、default、load，通常采用default即可满足要求, 若为QAT导出的模型, 则应选择load
+  # ----------------------------------------------------------------------------------
+  # types of model quantization algorithms, usually default will meet the need
+  # available options:kl, max, default and load
+  # if converted model is quanti model exported from QAT , then choose `load`
+  calibration_type: 'default'
+
+# 编译器相关参数
+# ----------------------------
+# compiler related parameters
+compiler_parameters:
+
+  # 编译策略，支持bandwidth和latency两种优化模式;
+  # bandwidth以优化ddr的访问带宽为目标；
+  # latency以优化推理时间为目标
+  # -------------------------------------------------------------------------------------------
+  # compilation strategy, there are 2 available optimization modes: 'bandwidth' and 'lantency'
+  # the 'bandwidth' mode aims to optimize ddr access bandwidth
+  # while the 'lantency' mode aims to optimize inference duration
+  compile_mode: 'latency'
+
+  # 设置debug为True将打开编译器的debug模式，能够输出性能仿真的相关信息，如帧率、DDR带宽占用等
+  # -----------------------------------------------------------------------------------
+  # the compiler's debug mode will be enabled by setting to True
+  # this will dump performance simulation related information
+  # such as: frame rate, DDR bandwidth usage etc.
+  debug: False
+
+  # 编译模型指定核数，不指定默认编译单核模型, 若编译双核模型，将下边注释打开即可
+  # -------------------------------------------------------------------------------------
+  # specifies number of cores to be used in model compilation 
+  # as default, single core is used as this value left blank
+  # please delete the "# " below to enable dual-core mode when compiling dual-core model
+  # core_num: 2
+
+  # 优化等级可选范围为O0~O3
+  # O0不做任何优化, 编译速度最快，优化程度最低,
+  # O1-O3随着优化等级提高，预期编译后的模型的执行速度会更快，但是所需编译时间也会变长。
+  # 推荐用O2做最快验证
+  # ----------------------------------------------------------------------------------------------------------
+  # optimization level ranges between O0~O3
+  # O0 indicates that no optimization will be made 
+  # the faster the compilation, the lower optimization level will be
+  # O1-O3: as optimization levels increase gradually, model execution, after compilation, shall become faster
+  # while compilation will be prolonged
+  # it is recommended to use O2 for fastest verification
+  optimize_level: 'O3'
