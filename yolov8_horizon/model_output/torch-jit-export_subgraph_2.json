@@ -1,0 +1,65 @@
+{
+    "summary": {
+        "BPU OPs per frame (effective)": 204800,
+        "BPU OPs per run (effective)": 204800,
+        "BPU PE number": 1,
+        "BPU core number": 1,
+        "BPU march": "BERNOULLI2",
+        "DDR bytes per frame": 178000.0,
+        "DDR bytes per run": 178000,
+        "DDR bytes per second": 3310026777,
+        "DDR megabytes per frame": 0.17,
+        "DDR megabytes per run": 0.17,
+        "DDR megabytes per second": 3156.7,
+        "FPS": 18595.66,
+        "HBDK version": "3.27.4",
+        "compiling options": "-f hbir -m /tmp/tmp11gqqvjm/torch-jit-export_subgraph_2.bin -o /tmp/tmp11gqqvjm/torch-jit-export_subgraph_2.hbm --march bernoulli2 --progressbar --fast --O3 --input-layout NHWC --output-layout NCHW --input-source ddr",
+        "frame per run": 1,
+        "frame per second": 18595.66,
+        "input features": [
+            [
+                "input name",
+                "input size"
+            ],
+            [
+                "317_Conv_163_quantized_input",
+                "1x4x1600x16"
+            ]
+        ],
+        "interval loading bandwidth (megabytes/s)": [
+            3165,
+            2763,
+            2843,
+            2929,
+            2612,
+            219
+        ],
+        "interval number": 6,
+        "interval storing bandwidth (megabytes/s)": [
+            292,
+            488,
+            488,
+            488,
+            488,
+            195
+        ],
+        "interval time (ms)": 0.01,
+        "latency (ms)": 0.05,
+        "latency (ms) by segments": [
+            0.054
+        ],
+        "latency (us)": 53.8,
+        "loaded bytes per frame": 152400,
+        "loaded bytes per run": 152400,
+        "model json CRC": "7aeff530",
+        "model json file": "/tmp/tmp11gqqvjm/torch-jit-export_subgraph_2.bin",
+        "model name": "torch-jit-export_subgraph_2",
+        "model param CRC": "00000000",
+        "multicore sync time (ms)": 0.0,
+        "run per second": 18595.66,
+        "runtime version": "3.13.27",
+        "stored bytes per frame": 25600,
+        "stored bytes per run": 25600,
+        "worst FPS": 18595.66
+    }
+}

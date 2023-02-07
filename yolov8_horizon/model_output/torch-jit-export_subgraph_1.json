@@ -1,0 +1,63 @@
+{
+    "summary": {
+        "BPU OPs per frame (effective)": 819200,
+        "BPU OPs per run (effective)": 819200,
+        "BPU PE number": 1,
+        "BPU core number": 1,
+        "BPU march": "BERNOULLI2",
+        "DDR bytes per frame": 715600.0,
+        "DDR bytes per run": 715600,
+        "DDR bytes per second": 3424791932,
+        "DDR megabytes per frame": 0.682,
+        "DDR megabytes per run": 0.682,
+        "DDR megabytes per second": 3266.1,
+        "FPS": 4785.9,
+        "HBDK version": "3.27.4",
+        "compiling options": "-f hbir -m /tmp/tmp11gqqvjm/torch-jit-export_subgraph_1.bin -o /tmp/tmp11gqqvjm/torch-jit-export_subgraph_1.hbm --march bernoulli2 --progressbar --fast --O3 --input-layout NHWC --output-layout NCHW --input-source ddr",
+        "frame per run": 1,
+        "frame per second": 4785.9,
+        "input features": [
+            [
+                "input name",
+                "input size"
+            ],
+            [
+                "291_Conv_143_quantized_input",
+                "1x4x6400x16"
+            ]
+        ],
+        "interval loading bandwidth (megabytes/s)": [
+            2926,
+            2812,
+            2812,
+            2829,
+            315
+        ],
+        "interval number": 5,
+        "interval storing bandwidth (megabytes/s)": [
+            449,
+            468,
+            468,
+            468,
+            97
+        ],
+        "interval time (ms)": 0.05,
+        "latency (ms)": 0.21,
+        "latency (ms) by segments": [
+            0.209
+        ],
+        "latency (us)": 208.9,
+        "loaded bytes per frame": 613200,
+        "loaded bytes per run": 613200,
+        "model json CRC": "e1258e19",
+        "model json file": "/tmp/tmp11gqqvjm/torch-jit-export_subgraph_1.bin",
+        "model name": "torch-jit-export_subgraph_1",
+        "model param CRC": "00000000",
+        "multicore sync time (ms)": 0.0,
+        "run per second": 4785.9,
+        "runtime version": "3.13.27",
+        "stored bytes per frame": 102400,
+        "stored bytes per run": 102400,
+        "worst FPS": 4785.9
+    }
+}
