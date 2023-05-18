@@ -26,5 +26,5 @@ yolov8n_horizon：地平线模型、测试（量化）图像、测试结果、�
 优点：板端部署通用性好，在板端效率高。
 缺点：工程难道大。
 
-官方导出onnx板端部署方式参考[官方导出onnx方式部署](https://github.com/cqu20160901/yolov8n_official_onnx_tensorRT_rknn_horizon)
+官方导出onnx方式板端部署方式参考[官方导出onnx方式部署](https://github.com/cqu20160901/yolov8n_official_onnx_tensorRT_rknn_horizon)
 
