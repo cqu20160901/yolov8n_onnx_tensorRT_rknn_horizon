@@ -28,3 +28,7 @@ yolov8n_horizon：地平线模型、测试（量化）图像、测试结果、�
 
 官方导出onnx方式板端部署方式参考 [官方导出onnx方式部署](https://blog.csdn.net/zhangqian_1/article/details/130754564) 。
 
+
+# 板端C++部署（以rknn芯片为例）
+rknn的板端部署参考 [C++部署](https://github.com/cqu20160901/yolov8n_onnx_tensorRT_rknn_horizon)
+
