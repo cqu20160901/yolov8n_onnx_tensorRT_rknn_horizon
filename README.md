@@ -32,3 +32,7 @@ yolov8n_horizon：地平线模型、测试（量化）图像、测试结果、�
 # 板端C++部署（以rknn芯片为例）
 rknn的板端部署参考 [C++部署](https://github.com/cqu20160901/yolov8n_onnx_tensorRT_rknn_horizon)
 
+
+# yolov8seg 部署参考
+
+想试试yolov8seg的小伙伴看过来：[模型+代码](https://github.com/cqu20160901/yolov8seg_onnx_tensorRT_rknn_horizon)
